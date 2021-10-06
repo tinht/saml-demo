@@ -53,11 +53,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SAMLLogoutProcessingFilter samlLogoutProcessingFilter;
 
-    @Bean
-    public SAMLDiscovery samlDiscovery() {
-        SAMLDiscovery idpDiscovery = new SAMLDiscovery();
-        return idpDiscovery;
-    }
+//    @Bean
+//    public SAMLDiscovery samlDiscovery() {
+//        SAMLDiscovery idpDiscovery = new SAMLDiscovery();
+//        return idpDiscovery;
+//    }
 
     @Autowired
     private SAMLAuthenticationProvider samlAuthenticationProvider;
@@ -92,7 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         chains.add(new DefaultSecurityFilterChain(new AntPathRequestMatcher("/saml/SSO/**"),
                 samlWebSSOProcessingFilter()));
         chains.add(new DefaultSecurityFilterChain(new AntPathRequestMatcher("/saml/discovery/**"),
-                samlDiscovery()));
+                new SAMLDiscovery()));
         chains.add(new DefaultSecurityFilterChain(new AntPathRequestMatcher("/saml/login/**"),
                 samlEntryPoint));
         chains.add(new DefaultSecurityFilterChain(new AntPathRequestMatcher("/saml/logout/**"),
