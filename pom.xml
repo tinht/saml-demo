@@ -83,7 +83,7 @@
                     <plugin>
                         <groupId>com.google.cloud.tools</groupId>
                         <artifactId>jib-maven-plugin</artifactId>
-                        <version>2.2.0</version>
+                        <version>3.1.4</version>
                         <configuration>
                             <to>
                                 <image>trantinh/demo-ci-cd-process</image>
@@ -110,6 +110,7 @@
                         <version>3.0.2</version>
                         <configuration>
                             <appName>demo-ci-cd-process</appName>
+                            <jdkVersion>16</jdkVersion>
                             <processTypes>
                                 <web>java $JAVA_OPTS -jar -Dserver.port=$PORT target/${project.build.finalName}.jar</web>
                             </processTypes>
